@@ -1,8 +1,8 @@
 //-----------------------------------------------------------------------------------------------------------------
-// File:   example_perspectiveandpath.cpp
+// File:   Lab7.cpp
 // Author: Peter J. Tucker 
 //
-// Modified from Source File:   example_2.cpp
+// Modified from Source File:   Lab_2.cpp
 // Original Source File Author: Prof. Allan A. Douglas 
 //-----------------------------------------------------------------------------------------------------------------
 
@@ -305,18 +305,8 @@ void searchForMovement(cv::Mat thresholdImage, cv::Mat &cameraFeed){
     }
 
     //make some temp x and y variables so we dont have to type out so much
-
-//#ifdef TEST_LIVE_VIDEO
-
-//    int x = theObject[0];
-//    int y = theObject[1];
-
-//#else
-
     int x = theObject[0]+XROI;
     int y = theObject[1]+YROI;
-
-//#endif
      
     //write the position of the object to the screen
     putText(cameraFeed,"(" + intToString(x)+","+intToString(y)+")",Point(x,y),1,1,Scalar(255,0,0),2);
@@ -385,7 +375,6 @@ void gitThatBall() {
 // main
 //-----------------------------------------------------------------------------------------------------------------
 int main() {
-
 
     // OpenCV frame matrices
     cv::Mat frame0, frame1, frame0_warped, frame1_warped, result, HSV_0, HSV_1, thresholdfilter_0, thresholdfilter_1, gray0, gray1, topfilter0, topfilter1, bottomfilter0, bottomfilter1, threshold;
@@ -502,17 +491,15 @@ int main() {
     // 
     // OpenCV coordinate system is based on rows and then columns.
     // FindCorners starts at top left and moves counter clockwise.
-    inputQuad[3] = corners[1];//Point(519,77)  //Point2f(520,80);
-    inputQuad[0] = corners[0];//Point(885,74)  //Point2f(880,77);
-    inputQuad[1] = corners[3];//Point(927,673)  //Point2f(923,672);
-    inputQuad[2] = corners[2];//Point(471,660)  //Point2f(472,655);
+    inputQuad[3] = corners[1];
+    inputQuad[0] = corners[0];
+    inputQuad[1] = corners[3];
+    inputQuad[2] = corners[2];
 
 //    inputQuad[0] = Point2f(520,80);
 //    inputQuad[1] = Point2f(880,77);
 //    inputQuad[2] = Point2f(923,672);
 //    inputQuad[3] = Point2f(472,655);
-
-
 
     // 4 Points for mapping output to, from top-left clockwise order.
     outputQuad[0] = Point2f(437,0);
